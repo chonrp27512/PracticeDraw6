@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.hencoder.hencoderpracticedraw6.R;
+import com.hencoder.hencoderpracticedraw6.Utils;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static com.hencoder.hencoderpracticedraw6.Utils.dpToPixel;
@@ -48,7 +49,80 @@ public class Practice01Translation extends RelativeLayout {
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View v) {
-                // TODO 在这里处理点击事件，通过 View.animate().translationX/Y/Z() 来让 View 平移
+                // TODO 在这里处理点击事件，通过 View.animate().translationX/Y/Z() 来让 View 平移]
+
+                imageView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.animate().translationX(Utils.dpToPixel(50));
+                        imageView.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imageView.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        imageView.animate().translationX(Utils.dpToPixel(0));
+                                        imageView.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                imageView.postDelayed(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        imageView.animate().translationY(Utils.dpToPixel(50));
+                                                        imageView.postDelayed(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                imageView.postDelayed(new Runnable() {
+                                                                    @Override
+                                                                    public void run() {
+                                                                        imageView.animate().translationY(Utils.dpToPixel(0));
+                                                                        imageView.postDelayed(new Runnable() {
+                                                                            @Override
+                                                                            public void run() {
+                                                                                imageView.postDelayed(new Runnable() {
+                                                                                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                                                                                    @Override
+                                                                                    public void run() {
+                                                                                        if (SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+                                                                                            imageView.animate().translationZ(Utils.dpToPixel(20));
+                                                                                            imageView.postDelayed(new Runnable() {
+                                                                                                @Override
+                                                                                                public void run() {
+                                                                                                    imageView.postDelayed(new Runnable() {
+                                                                                                        @Override
+                                                                                                        public void run() {
+                                                                                                            imageView.animate().translationZ(Utils.dpToPixel(0));
+                                                                                                            imageView.postDelayed(new Runnable() {
+                                                                                                                @Override
+                                                                                                                public void run() {
+
+                                                                                                                }
+                                                                                                            }, 500);
+                                                                                                        }
+                                                                                                    }, 500);
+                                                                                                }
+                                                                                            }, 500);
+                                                                                        }
+                                                                                    }
+                                                                                }, 500);
+                                                                            }
+                                                                        }, 500);
+                                                                    }
+                                                                }, 500);
+                                                            }
+                                                        }, 500);
+                                                    }
+                                                }, 500);
+                                            }
+                                        }, 500);
+                                    }
+                                }, 500);
+                            }
+                        }, 500);
+                    }
+                }, 500);
+
+
             }
         });
     }
