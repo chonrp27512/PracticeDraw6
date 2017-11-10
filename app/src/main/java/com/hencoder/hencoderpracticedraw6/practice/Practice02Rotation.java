@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.hencoder.hencoderpracticedraw6.R;
-import com.hencoder.hencoderpracticedraw6.Utils;
 
 public class Practice02Rotation extends RelativeLayout {
     Button animateBt;
@@ -25,6 +24,7 @@ public class Practice02Rotation extends RelativeLayout {
 
     public Practice02Rotation(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setLayerType(LAYER_TYPE_SOFTWARE,null);
     }
 
     @Override
@@ -51,6 +51,18 @@ public class Practice02Rotation extends RelativeLayout {
                                     @Override
                                     public void run() {
                                         imageView.animate().rotation(0);
+                                        imageView.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                imageView.animate().rotationX(180);
+                                                imageView.postDelayed(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        imageView.animate().rotationX(0);
+                                                    }
+                                                }, 500);
+                                            }
+                                        }, 500);
                                     }
                                 }, 500);
                             }

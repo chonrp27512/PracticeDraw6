@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.hencoder.hencoderpracticedraw6.R;
+import com.hencoder.hencoderpracticedraw6.Utils;
 
 public class Practice05MultiProperties extends ConstraintLayout {
     Button animateBt;
@@ -39,6 +40,19 @@ public class Practice05MultiProperties extends ConstraintLayout {
             @Override
             public void onClick(View v) {
                 // TODO 在这里处理点击事件，同时对多个属性做动画
+                imageView.animate().alpha(0.4F).scaleX(0.4F).scaleY(0.4F).rotation(40).translationX(Utils.dpToPixel(40));
+                imageView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.animate().alpha(0.8F).scaleX(0.8F).scaleY(0.8F).rotation(80).translationX(Utils.dpToPixel(80));
+                        imageView.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imageView.animate().alpha(1).scaleX(1).scaleY(1).rotation(100).translationX(Utils.dpToPixel(100));
+                            }
+                        }, 500);
+                    }
+                }, 500);
             }
         });
     }

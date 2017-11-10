@@ -37,6 +37,24 @@ public class Practice04Alpha extends RelativeLayout {
             @Override
             public void onClick(final View v) {
                 // TODO 在这里处理点击事件，通过 View.animate().alpha() 来改变 View 的透明度
+                imageView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.animate().alpha(0.8F);
+                        imageView.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                imageView.animate().alpha(0.5F);
+                                imageView.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        imageView.animate().alpha(0.2F);
+                                    }
+                                }, 500);
+                            }
+                        }, 500);
+                    }
+                }, 500);
             }
         });
     }
